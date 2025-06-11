@@ -1,0 +1,400 @@
+
+
+**Question 0: Differentiate Virtual Circuit Switching and Datagram Switching**
+
+Virtual circuit switching and datagram switching represent two fundamental approaches to packet switching in computer networks. They differ significantly in how they establish routes, handle addressing, and manage packet delivery.
+
+**Virtual Circuit Switching**
+
+1.  **Connection-Oriented:** A dedicated path is established between the source and destination before data transmission begins. This path is called a virtual circuit.
+    *   *Example:* Think of a phone call. You dial a number, a connection is established, and then you can speak.
+2.  **Predefined Route:** All packets belonging to the same virtual circuit follow the same pre-established route.
+    *   *Example:* A train that follows a specific track from start to finish.
+3.  **Virtual Circuit Identifier (VCI):** Each packet carries a VCI, which is a short, locally significant identifier used to identify the virtual circuit at each switch.
+    *   *Example:* A train ticket that indicates the route and destination.
+4.  **Call Setup Phase:** Before data transmission, a call setup phase is required to establish the virtual circuit. This involves signaling between switches to reserve resources.
+    *   *Example:* Making a reservation at a restaurant before you arrive.
+5.  **Ordered Delivery:** Packets arrive at the destination in the same order they were sent, as they follow the same path.
+    *   *Example:* Letters in a mail train arrive in the order they were loaded.
+6.  **Error Handling:** Error detection and correction can be performed on a per-virtual circuit basis.
+    *   *Example:* A dedicated mechanic checks each train car for problems.
+7.  **Resource Reservation:** Resources (bandwidth, buffer space) can be reserved along the virtual circuit path during the call setup phase.
+    *   *Example:* Reserving seats on a train ensures you have a place to sit.
+8.  **Complexity:** More complex to implement due to the need for call setup and maintenance.
+    *   *Example:* Building and maintaining a railway system is complex.
+9.  **Overhead:** Introduces overhead due to call setup and the need to maintain virtual circuit state at each switch.
+    *   *Example:* The time and effort to make a train reservation.
+10. **Example Technologies:** Frame Relay, ATM (Asynchronous Transfer Mode).
+
+**Datagram Switching**
+
+1.  **Connectionless:** No dedicated path is established before data transmission. Each packet is treated independently.
+    *   *Example:* Sending a letter through the postal service.
+2.  **Independent Routing:** Each packet is routed independently based on its destination address. Packets may take different paths to reach the destination.
+    *   *Example:* Cars on a highway can take different routes to the same city.
+3.  **Destination Address:** Each packet carries the full destination address.
+    *   *Example:* The full address on an envelope.
+4.  **No Call Setup:** No call setup phase is required. Packets can be sent immediately.
+    *   *Example:* Dropping a letter in the mailbox.
+5.  **Unordered Delivery:** Packets may arrive at the destination out of order, as they may have taken different paths.
+    *   *Example:* Letters mailed on the same day might arrive on different days.
+6.  **Error Handling:** Error detection and correction are typically performed on an end-to-end basis.
+    *   *Example:* The recipient checks the contents of the letter for errors.
+7.  **No Resource Reservation:** Resources are not reserved in advance. Each packet competes for resources at each switch.
+    *   *Example:* Cars on a highway compete for space.
+8.  **Complexity:** Simpler to implement as it does not require call setup or maintenance.
+    *   *Example:* A road system is simpler to manage than a railway system.
+9.  **Overhead:** Lower overhead as there is no call setup. However, each packet carries the full destination address, which adds to the overhead.
+    *   *Example:* The cost of printing the full address on each envelope.
+10. **Example Technologies:** IP (Internet Protocol).
+
+In summary, virtual circuit switching offers guaranteed delivery order and potential for resource reservation at the cost of increased complexity and overhead. Datagram switching provides flexibility and simplicity but does not guarantee delivery order and requires each packet to carry full addressing information. The choice between the two depends on the specific requirements of the network and the applications it supports.
+
+**1. Bipolar Encoding**
+
+Bipolar encoding represents a digital signal encoding method. It employs three voltage levels: positive, negative, and zero. This encoding scheme is categorized as a type of Return-to-Zero (RZ) encoding.
+
+**Key Characteristics:**
+
+*   **Three Voltage Levels:** Bipolar encoding uses positive voltage, negative voltage, and zero voltage to represent data.
+*   **Zero Representation:** One voltage level, usually zero volts, represents one binary digit (e.g., '0').
+*   **Alternating Polarity:** The other binary digit (e.g., '1') is represented by alternating positive and negative voltages. This alternation happens for each successive '1' to maintain a DC balance.
+*   **DC Component Reduction:** Alternating polarities for '1' bits reduce the DC component of the signal, preventing signal drooping.
+*   **Error Detection:** The presence of consecutive positive or negative voltages violates the alternating polarity rule, indicating a possible error.
+
+**Types of Bipolar Encoding:**
+
+*   **Alternate Mark Inversion (AMI):** In AMI, zero voltage represents '0'. '1' is represented by alternating positive and negative voltages. For example, if the previous '1' was represented by a positive voltage, the next '1' will be represented by a negative voltage, and vice versa.
+*   **Pseudoternary:** Pseudoternary is the inverse of AMI. '1' is represented by zero voltage, while '0' is represented by alternating positive and negative voltages.
+
+**Advantages:**
+
+*   **DC Component Reduction:** Bipolar encoding reduces the DC component of the signal.
+*   **Error Detection:** Inherent error detection capabilities due to the alternating polarity rule.
+*   **Synchronization:** Transitions in the signal aid in bit synchronization at the receiver.
+
+**Disadvantages:**
+
+*   **Complexity:** Bipolar encoding is more complex to implement compared to unipolar encoding.
+*   **Bandwidth:** It requires a larger bandwidth compared to simpler encoding schemes.
+
+**Example:**
+
+Consider the binary data stream: 1 0 1 1 0 1 0 0
+
+Using AMI Bipolar Encoding:
+
+*   Assume the first '1' is represented by +V.
+*   '0' is represented by 0V.
+
+The encoded signal would be: +V 0 -V +V 0 -V 0 0
+
+**Answer 2:**
+
+The process of resolving the address for "stanford.edu" using a recursive DNS query involves several steps. These steps ensure that the requesting DNS resolver obtains the IP address associated with the domain name.
+
+**Steps Involved:**
+
+1.  **Initial Query:**
+    *   A user enters "stanford.edu" into a web browser.
+    *   The user's computer sends a DNS query to its configured recursive DNS resolver (e.g., provided by the ISP).
+    *   The query asks for the IP address of "stanford.edu."
+
+    *Example:* A home computer queries the ISP's DNS server.
+
+2.  **Recursive Resolver's Query to Root Server:**
+    *   The recursive resolver does not have the answer in its cache.
+    *   The resolver queries a root DNS server.
+    *   The root server knows about all top-level domains (TLDs) and directs the resolver to the appropriate TLD server (in this case, the ".edu" DNS server).
+
+    *Example:* The ISP's DNS server queries a root server, which responds with the address of the .edu TLD server.
+
+3.  **Query to TLD Server:**
+    *   The recursive resolver queries the ".edu" DNS server.
+    *   The ".edu" DNS server knows the authoritative DNS servers for "stanford.edu" and refers the resolver to them.
+
+    *Example:* The ISP's DNS server queries the .edu TLD server, which responds with the address of the authoritative name server for stanford.edu.
+
+4.  **Query to Authoritative DNS Server:**
+    *   The recursive resolver queries the authoritative DNS server for "stanford.edu."
+    *   This server holds the DNS records for "stanford.edu," including the A record that maps the domain name to an IP address.
+
+    *Example:* The ISP's DNS server queries the authoritative name server for stanford.edu, which responds with the IP address.
+
+5.  **Authoritative Server Response:**
+    *   The authoritative DNS server responds to the recursive resolver with the IP address of "stanford.edu."
+
+    *Example:* The authoritative name server responds with the IP address (e.g., 171.67.215.200) for stanford.edu.
+
+6.  **Recursive Resolver Caching:**
+    *   The recursive resolver caches the IP address of "stanford.edu" along with a Time-To-Live (TTL) value.
+    *   This caching speeds up future queries for the same domain.
+
+    *Example:* The ISP's DNS server caches the IP address 171.67.215.200 for stanford.edu for a specified duration (e.g., 3600 seconds).
+
+7.  **Response to Client:**
+    *   The recursive resolver sends the IP address of "stanford.edu" to the user's computer.
+
+    *Example:* The ISP's DNS server sends the IP address 171.67.215.200 to the user's computer.
+
+8.  **Connection Establishment:**
+    *   The user's computer uses the IP address to establish a connection with the "stanford.edu" web server.
+
+    *Example:* The user's computer connects to the web server at IP address 171.67.215.200 to access the stanford.edu website.
+
+9.  **TTL Expiry and Refresh:**
+    *   Once the TTL expires, the recursive resolver repeats the process to obtain a fresh IP address, ensuring that changes to DNS records are eventually reflected.
+
+    *Example:* After 3600 seconds, the ISP's DNS server will repeat the query process to refresh the cached IP address for stanford.edu.
+
+10. **Error Handling:**
+    *   If any step fails (e.g., server unreachable, no record found), the recursive resolver may retry with alternative servers or return an error to the client.
+    *   This ensures robustness in the DNS resolution process.
+
+*Example:* If the authoritative name server for stanford.edu is temporarily unavailable, the ISP's DNS server might retry with a different authoritative server or return an error if all attempts fail.*
+
+**Answer 3:**
+
+**HTTP Request Header Format:**
+
+An HTTP request header is a set of fields containing information about the request being sent to a server. It follows a specific format:
+
+1.  **Request Line:**
+    *   The request line is the first line of an HTTP request.
+    *   It contains the HTTP method (e.g., GET, POST), the requested URL, and the HTTP version.
+    *   Example: `GET /index.html HTTP/1.1`
+
+2.  **Headers:**
+    *   Headers provide additional information about the request, such as the client's user agent, accepted content types, and more.
+    *   Each header consists of a name-value pair, separated by a colon.
+    *   Example: `Host: www.example.com`
+    *   `User-Agent: Mozilla/5.0`
+    *   `Accept: text/html, application/xml`
+    *   `Accept-Language: en-US,en;q=0.9`
+
+3.  **Body:**
+    *   The body contains the data being sent to the server (e.g., form data, JSON payload).
+    *   It is present only in requests that send data to the server, such as POST or PUT requests.
+    *   The body is separated from the headers by an empty line.
+
+4.  **Blank Line:**
+    *   A blank line indicates the end of the headers section and the beginning of the body (if any).
+    *   It consists of an empty line (CRLF).
+
+5.  **Example:**
+
+```
+POST /submit HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+name=John&age=30
+```
+
+**HTTP Response Header Format:**
+
+An HTTP response header is a set of fields containing information about the response sent by a server to a client. It follows a specific format:
+
+1.  **Status Line:**
+    *   The status line is the first line of an HTTP response.
+    *   It contains the HTTP version, a status code indicating the outcome of the request, and a status message.
+    *   Example: `HTTP/1.1 200 OK`
+
+2.  **Headers:**
+    *   Headers provide additional information about the response, such as the server's name, content type, and more.
+    *   Each header consists of a name-value pair, separated by a colon.
+    *   Example: `Server: Apache/2.4.1`
+    *   `Content-Type: text/html`
+    *   `Content-Length: 1234`
+    *   `Date: Mon, 26 Jul 2024 10:00:00 GMT`
+
+3.  **Body:**
+    *   The body contains the data being sent to the client (e.g., HTML content, JSON payload).
+    *   The body is separated from the headers by an empty line.
+
+4.  **Blank Line:**
+    *   A blank line indicates the end of the headers section and the beginning of the body (if any).
+    *   It consists of an empty line (CRLF).
+
+5.  **Example:**
+
+```
+HTTP/1.1 200 OK
+Server: Apache/2.4.1
+Content-Type: text/html
+Content-Length: 1234
+Date: Mon, 26 Jul 2024 10:00:00 GMT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>
+```
+
+**Diagram:**
+
+**HTTP Request:**
+
+```
+   +-------------------------+
+   |      Request Line       |  (e.g., GET /index.html HTTP/1.1)
+   +-------------------------+
+   |         Headers         |  (e.g., Host: www.example.com)
+   |           ...           |
+   +-------------------------+
+   |       Blank Line        |  (CRLF)
+   +-------------------------+
+   |           Body          |  (Optional, e.g., Form Data)
+   |           ...           |
+   +-------------------------+
+```
+
+**HTTP Response:**
+
+```
+   +-------------------------+
+   |      Status Line        |  (e.g., HTTP/1.1 200 OK)
+   +-------------------------+
+   |         Headers         |  (e.g., Content-Type: text/html)
+   |           ...           |
+   +-------------------------+
+   |       Blank Line        |  (CRLF)
+   +-------------------------+
+   |           Body          |  (e.g., HTML Content)
+   |           ...           |
+   +-------------------------+
+```
+
+These structures ensure that HTTP requests and responses are properly formatted, allowing clients and servers to communicate effectively.
+
+**Answer 4:**
+
+To determine the number of bits in the link at any given time, one must consider the link's bandwidth, the signal propagation speed, and the length of the link.
+
+*   **Bandwidth:** 10 Mbps (Megabits per second). This represents the maximum rate at which data can be transmitted over the link.
+*   **Signal Speed:** 2 x 10^8 m/s. This is the speed at which the signal travels through the link.
+
+To calculate the number of bits in the link, one can follow these steps:
+
+1.  **Determine the Transmission Time of One Bit:**
+
+    *   Transmission time = 1 / Bandwidth
+    *   Transmission time = 1 / (10 x 10^6 bits/second) = 10^-7 seconds or 0.1 microseconds.
+2.  **Determine the Propagation Delay:**
+
+    *   Propagation delay = Distance / Signal speed
+    *   Assume a distance of 1000 meters
+    *   Propagation delay = 1000 meters / (2 x 10^8 m/s) = 5 x 10^-6 seconds or 5 microseconds.
+3.  **Determine the Number of Bits in Transit:**
+
+    *   Bits in transit = Bandwidth x Propagation delay
+    *   Bits in transit = (10 x 10^6 bits/second) x (5 x 10^-6 seconds) = 50 bits.
+
+Therefore, at any given time, there are 50 bits in the link.
+
+**Example:**
+
+Imagine the link as a pipe and bits as marbles. The bandwidth is the rate at which marbles are pushed into the pipe, and the signal speed determines how quickly the marbles move through the pipe. The propagation delay is the time it takes for a marble to travel from one end of the pipe to the other.
+
+If one pushes marbles into the pipe at a rate of 10 million marbles per second, and it takes 5 microseconds for a marble to travel through the pipe, there will be 50 marbles inside the pipe at any given time.
+
+**5.** The Hamming distance measures the number of positions at which two strings of equal length differ.
+
+To calculate the Hamming distance between 0x71 and 0x93:
+
+1.  **Convert to Binary:**
+    *   0x71 = 01110001
+    *   0x93 = 10010011
+
+2.  **Compare Bit by Bit:** Compare the two binary strings bit by bit. Count the positions where the bits are different.
+
+3.  **Count Differences:**
+    *   Position 1: 0 and 1 (Different)
+    *   Position 2: 1 and 0 (Different)
+    *   Position 3: 1 and 0 (Different)
+    *   Position 4: 1 and 1 (Same)
+    *   Position 5: 0 and 0 (Same)
+    *   Position 6: 0 and 0 (Same)
+    *   Position 7: 0 and 1 (Different)
+    *   Position 8: 1 and 1 (Same)
+
+4.  **Hamming Distance:** There are four positions where the bits differ.
+
+Therefore, the Hamming distance between 0x71 and 0x93 is 4.
+
+**Example:**
+
+*   Consider two codewords: 10101010 and 10111000
+*   The Hamming distance is 2 (because the 4th and 7th bits are different).
+
+**Key points:**
+
+*   Hamming distance is used in error detection and correction.
+*   A smaller Hamming distance indicates greater similarity between codewords.
+*   It is applicable to strings of equal length.
+*   It counts the number of differing bits or symbols.
+*   Hamming distance is a metric for measuring the difference between two binary data strings.
+*   It plays a vital role in coding theory.
+*   Hamming distance is used to quantify the number of bits that are different between two binary strings.
+*   It helps in determining the minimum distance of a code.
+*   Hamming distance is used in various applications such as telecommunications, information theory, and cryptography.
+*   It provides a measure of the number of substitutions required to transform one string into the other.
+
+**6. Compare the working of CSMA/CD, Aloha, and Slotted Aloha (10 marks)**
+
+**Aloha**
+
+1.  Aloha is a multiple access protocol in which any node can transmit data at any time.
+2.  If two or more nodes transmit simultaneously, a collision occurs, and the data is lost.
+3.  Each sender waits a random amount of time before retransmitting its data.
+4.  Aloha is simple to implement, but it is inefficient due to the high probability of collisions.
+5.  The maximum throughput of Aloha is only about 18%.
+
+    *Example:* Imagine a group of people talking in a room. If two people start talking at the same time (collision), neither is heard. They both wait a random time and try again.
+
+**Slotted Aloha**
+
+1.  Slotted Aloha is a modification of Aloha that divides time into discrete intervals called slots.
+2.  Nodes can only begin transmitting at the beginning of a slot.
+3.  This reduces the probability of collisions compared to Aloha.
+4.  If a collision occurs, the nodes involved wait a random number of slots before retransmitting.
+5.  Slotted Aloha improves throughput compared to Aloha.
+6.  The maximum throughput of Slotted Aloha is about 36%.
+
+    *Example:* Using the talking analogy, imagine everyone is only allowed to start talking at the sound of a bell (the beginning of a slot). This reduces the chance of two people starting at the exact same time.
+
+**CSMA/CD (Carrier Sense Multiple Access with Collision Detection)**
+
+1.  CSMA/CD is a more sophisticated protocol that attempts to avoid collisions altogether.
+2.  Before transmitting, a node listens to the channel to see if anyone else is transmitting (carrier sense).
+3.  If the channel is idle, the node begins transmitting.
+4.  If the channel is busy, the node waits until it becomes idle before transmitting.
+5.  While transmitting, the node listens for collisions.
+6.  If a collision is detected, the node immediately stops transmitting and sends a jamming signal to alert all other nodes.
+7.  Each node then waits a random amount of time before attempting to retransmit.
+8.  CSMA/CD is more efficient than Aloha and Slotted Aloha.
+9.  CSMA/CD is commonly used in Ethernet networks.
+10. Efficiency decreases with increasing distance between nodes due to the increased time it takes to detect a collision.
+
+    *Example:* Imagine people waiting to speak. Before speaking, they listen to make sure no one else is talking. If someone starts talking at the same time, both stop immediately, and everyone waits a random time before trying again. The "jamming signal" is like shouting "collision!" so everyone knows to stop.
+
+**Comparison Table**
+
+| Feature           | Aloha                                 | Slotted Aloha                         | CSMA/CD                                  |
+| ----------------- | ------------------------------------- | ------------------------------------- | ---------------------------------------- |
+| Transmission Time | Any time                              | Start of time slot                    | If channel is idle                       |
+| Collision Handling| Retransmit after random delay         | Retransmit after random delay         | Stop transmitting, send jamming signal |
+| Efficiency        | Low (around 18%)                      | Moderate (around 36%)                 | High (can be over 90% in ideal conditions) |
+| Complexity        | Simple                                | Slightly more complex than Aloha      | More complex than Aloha and Slotted Aloha  |
+| Overhead          | Low                                   | Synchronization required              | Carrier sensing, collision detection     |
+| Example           | Early wireless networks               | Satellite networks                    | Ethernet                                 |
+
+**In Summary**
+
+Aloha is the simplest but least efficient. Slotted Aloha improves efficiency by dividing time into slots. CSMA/CD is the most complex but also the most efficient, as it attempts to avoid collisions before they occur and stops transmitting immediately upon detection of a collision. The choice of protocol depends on the specific application and the trade-offs between complexity, overhead, and efficiency.

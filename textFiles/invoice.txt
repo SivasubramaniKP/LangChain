@@ -1,0 +1,80 @@
+```json
+{
+  "invoice": {
+    "invoice_number": "0015-08",
+    "invoice_date": "September 12, 2019",
+    "address": "Oo Building OO Floor, Oo-chome, Oo-ku, Tokyo",
+    "agreement_type": "Monthly Translation Agreement",
+    "company": "Oo Economic Research Institute, Neighboring Country Research Department",
+    "setting": "Your firm's current setting",
+    "rate": "Rate per character this month: ¥14.00",
+    "greeting": "Thank you for your continued patronage. We are sending you the invoice for the translation project as follows. Please kindly confirm.",
+    "description": "Please kindly confirm the following description of translation services provided to your firm:",
+    "details": [
+      {
+        "received": "August 2, 2015",
+        "delivered": "August 3, 2015",
+        "in_charge": "Oo",
+        "file_name": "Biweekly Report_doc",
+        "description": "20150802 biweeklydoc",
+        "characters": "660",
+        "hours": "0.50",
+        "total_characters": "8,800",
+        "gross_amount": "¥125,200",
+        "tax": "¥2,573",
+        "amount_less_tax": "¥122,627"
+      },
+      {
+        "received": "August 15, 2015",
+        "delivered": "August 16, 2015",
+        "in_charge": "Oo",
+        "file_name": "Biweekly Economic Report_doc",
+        "description": "2015081 biwecklydoc",
+        "characters": "620",
+        "hours": null,
+        "total_characters": "8,680",
+        "gross_amount": "¥124,640",
+        "tax": "¥2,566",
+        "amount_less_tax": "¥122,124"
+      },
+      {
+        "received": "August 25, 2015",
+        "delivered": "December 23, 1925",
+        "in_charge": "Oo",
+        "file_name": "Special Report doc",
+        "description": "20150825 specialdoc",
+        "characters": "710",
+        "hours": null,
+        "total_characters": "710",
+        "gross_amount": "¥9,940",
+        "tax": "¥1,015",
+        "amount_less_tax": "¥8,925"
+      }
+    ],
+    "total_base_characters": "18,190",
+    "total_amount_due": "¥259,780",
+    "total_tax": "¥6,104",
+    "total_amount_payable": "¥253,676",
+    "kanji_count_description": "Number of kanji/kana characters in text (excluding any English text)",
+    "hourly_conversion_description": "Hourly work (if any) for figures (@ 0.25 hour = 140 char)",
+    "remittance_information": "Please remit to the following account",
+    "total_characters_description": "Total characters (t) Shown in Red if below (a)",
+    "bank_name": "Mizuho Bank",
+    "bank_branch": "Tokyo Central Branch",
+    "account_number": "8501095",
+    "account_type": "Ordinary",
+    "account_name": "WILT CHARLES GEOFFREY",
+    "formula_gross_amount": "Amount before tax withholding: A in A-14b+17(t-b)",
+    "tax_rate": "Less 0.1021 Withholding Tax and Recovery Tax (rounded)",
+    "formula_total_amount": "Amount due or 145+(t-b) minus tax",
+    "closing": "Thank you very much for your continued business. If you have any questions about this invoice, please see the above website or contact me. Charles G Wilt"
+  },
+  "contact_information": {
+    "name": "Charles C Wilt",
+    "title": "Japanese-English Translation",
+    "phone": "090-6301-0192",
+    "email": "charlesacw-translationnet",
+    "website": "http://www.cw-translation.net"
+  }
+}
+```
