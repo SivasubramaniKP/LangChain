@@ -43,3 +43,4 @@ if __name__ == "__main__":
     multi_language_team.print_response("How are you?", stream=True)  # English
     multi_language_team.print_response("你好吗？", stream=True)  # Chinese
     multi_language_team.print_response("Come stai?", stream=True)  # Italian
+

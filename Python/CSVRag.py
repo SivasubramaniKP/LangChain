@@ -19,11 +19,11 @@ import urllib.parse
 # %%
 from agno.vectordb.lancedb import LanceDb
 from agno.vectordb.search import SearchType
-vector_db = LanceDb(
-    table_name="recipes",
-    uri="/tmp/lancedb",
-    search_type=SearchType.hybrid,
-    embedder=GeminiEmbedder()
+vector_db = MongoDb(
+    db_url="mongodb://localhost:27017/",
+    database="agno",
+    embedder=GeminiEmbedder(),
+    
 )
 
 knowledge_base = CSVKnowledgeBase(
