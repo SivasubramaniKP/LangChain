@@ -11,7 +11,6 @@ chat_model = init_chat_model(
     "gemini-2.0-flash",
     model_provider="google_genai"
 )
-
 prompt = st.chat_input("Ask a follow-up question...")
 if "messages" not in st.session_state:
     st.session_state.messages = []
